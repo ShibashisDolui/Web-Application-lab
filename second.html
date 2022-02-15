@@ -9,16 +9,40 @@
 <body>
     <form action="">
         <div>
-            <label for="">Username</label>
+            <label for="username">Username</label>
             <br>
-            <input type="text">
+            <input type="text" placeholder="Enter username" id="username">
         </div>
         <div>
-            <label for="">Password</label>
+            <label for="password">Password</label>
             <br>
-            <input type="text">
+            <input type="text" placeholder="Enter password" id="password">
         </div>
-        <button type="submit">Submit</button>
+        <button type="button" onclick="check()">submit</button>
     </form>
+    <script>
+        function check(){
+            const _username = document.getElementById("username").value;
+            const _password = document.getElementById("password").value;
+            const validUserName = /^[a-zA-Z_]{1,10}$/;
+            if(_password.length < 6 || _password.length > 10){
+                console.log("invalid");
+                return;
+            }
+            let upperCase = 0, digits = 0;
+            for(let i = 0; i < _password.length; i++){
+                let ch = _password[i];
+                let num = Number.parseInt(ch);
+                digits += (num <= 9 && num >= 0);
+                upperCase += (ch >= 'A' && ch <= 'Z');
+            }
+            if(digits >= 1 && upperCase >= 1 && validUserName.test(_username)){
+                console.log("valid");
+            }
+            else{
+                console.log("invalid");
+            }
+        }
+    </script>
 </body>
 </html>
