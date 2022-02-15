@@ -16,10 +16,13 @@
         <div>
             <label for="password">Password</label>
             <br>
-            <input type="text" placeholder="Enter password" id="password">
+            <input type="password" placeholder="Enter password" id="password">
         </div>
         <button type="button" onclick="check()">submit</button>
     </form>
+    <br>
+    <div id="myDiv">
+    </div>
     <script>
         function check(){
             const _username = document.getElementById("username").value;
@@ -37,10 +40,12 @@
                 upperCase += (ch >= 'A' && ch <= 'Z');
             }
             if(digits >= 1 && upperCase >= 1 && validUserName.test(_username)){
-                console.log("valid");
+                document.getElementById('myDiv').innerText = "valid";
+                document.getElementById("myDiv").style.color = "green";
             }
             else{
-                console.log("invalid");
+                document.getElementById('myDiv').innerText = "Invalid";
+                document.getElementById("myDiv").style.color = "red";
             }
         }
     </script>
