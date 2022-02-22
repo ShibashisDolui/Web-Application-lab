@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="">
-        <input type="radio" name = "payment" onclick="">
+        <input type="radio" name = "payment" onclick="makeInvisible()">
         <label>Pay Now</label>
         <br>
         <input type="radio" name = "payment" onclick="payLater()">
@@ -19,6 +19,9 @@
     <script>
         function payLater(){
             document.getElementById("my-div").innerHTML = "<input type=\"date\">";
+        }
+        function makeInvisible(){
+            document.getElementById("my-div").style.display = "none";
         }
     </script>
 </body>
